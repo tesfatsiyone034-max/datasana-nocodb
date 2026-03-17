@@ -2,7 +2,7 @@ services:
   - type: web
     name: datasana-grades
     runtime: image
-    repo: https://github.com/YOUR_USERNAME/datasana-nocodb
+    repo: https://github.com/tesfatsiyone034-max/datasana-nocodb
     plan: free
     envVars:
       - key: NC_DB

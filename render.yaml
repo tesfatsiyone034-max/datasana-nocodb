@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: datasana-grades
+    runtime: image
+    repo: https://github.com/YOUR_USERNAME/datasana-nocodb
+    plan: free
+    envVars:
+      - key: NC_DB
+        value: sqlite3:///data/noco.db
+      - key: NC_PUBLIC_URL
+        value: https://datasana-grades.onrender.com
+      - key: PORT
+        value: 8080
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: nocodb-data
+      mountPath: /data
+      sizeGB: 1

@@ -6,14 +6,18 @@ services:
     plan: free
     envVars:
       - key: NC_DB
-        value: sqlite3:///data/noco.db
+        fromDatabase:
+          name: datasana-db
+          property: connectionString
       - key: NC_PUBLIC_URL
         value: https://datasana-grades.onrender.com
       - key: PORT
         value: 8080
       - key: NODE_ENV
         value: production
-    disk:
-      name: nocodb-data
-      mountPath: /data
-      sizeGB: 1
+
+databases:
+  - name: datasana-db
+    plan: free
+    databaseName: nocodb
+    user: nocodb
